@@ -30,5 +30,20 @@ window.SQLD = {
       }
     }
     throw new Error("없는 챕터: " + chapterId);
+  },
+  // 이미 있는 섹션 끝에 개념을 덧붙인다.
+  add: function (sectionId, nodes) {
+    for (var i = 0; i < this.parts.length; i++) {
+      var chs = this.parts[i].chapters;
+      for (var j = 0; j < chs.length; j++) {
+        for (var k = 0; k < chs[j].sections.length; k++) {
+          if (chs[j].sections[k].id === sectionId) {
+            chs[j].sections[k].nodes = chs[j].sections[k].nodes.concat(nodes);
+            return;
+          }
+        }
+      }
+    }
+    throw new Error("없는 섹션: " + sectionId);
   }
 };
