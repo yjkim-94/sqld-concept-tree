@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SQLD 개념 트리</title>
+  <meta name="description" content="SQLD 1과목·2과목 개념을 한 페이지 트리로 정리한 암기 노트">
+  <meta name="theme-color" content="#0b6e6e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-in">
+      <div class="brand">
+        <h1>SQLD 개념 트리</h1>
+        <div class="progress" aria-live="polite">
+          <div class="bar" aria-hidden="true"><span id="bar-fill"></span></div>
+          <span id="progress-text" class="progress-text"></span>
+        </div>
+      </div>
+      <div class="tools">
+        <label class="search">
+          <span class="sr">개념 검색</span>
+          <input id="search" type="search" placeholder="검색: NULL, ROLLUP, 식별자…" autocomplete="off">
+        </label>
+        <div class="chips" role="group" aria-label="중요도와 보기 설정">
+          <button type="button" class="chip lv-hi" data-level="상" aria-pressed="true">상</button>
+          <button type="button" class="chip lv-mid" data-level="중" aria-pressed="true">중</button>
+          <button type="button" class="chip lv-lo" data-level="하" aria-pressed="true">하</button>
+          <button type="button" class="chip" id="todo-only" aria-pressed="false">안 외운 것만</button>
+          <span class="chip-gap"></span>
+          <button type="button" class="chip plain" id="expand-all">모두 펼치기</button>
+          <button type="button" class="chip plain" id="collapse-all">모두 접기</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="tree-col" aria-label="개념 트리">
+      <p id="result-note" class="result-note" hidden></p>
+      <ul id="tree" class="tree"></ul>
+      <p id="empty" class="empty" hidden>조건에 맞는 개념이 없습니다. 검색어를 지우거나 필터를 다시 켜 보세요.</p>
+    </section>
+    <aside id="detail" class="detail" aria-label="개념 카드">
+      <div id="detail-hint" class="hint">
+        <h2>개념을 누르면 카드가 열립니다</h2>
+        <p>섹션을 펼쳐 개념을 고르면 핵심, 암기, 꿀팁, 헷갈리는 점, 예시 문제를 볼 수 있습니다.</p>
+        <dl class="legend">
+          <div><dt><span class="lv lv-hi">상</span></dt><dd>반드시 보고 가야 하는 이론</dd></div>
+          <div><dt><span class="lv lv-mid">중</span></dt><dd>보편적으로 다루어지는 이론</dd></div>
+          <div><dt><span class="lv lv-lo">하</span></dt><dd>알고 가면 좋은 이론</dd></div>
+        </dl>
+        <p class="hint-note">쿼리는 Oracle 기준이며 SQL Server와 다른 점은 카드에 따로 적었습니다. 교재와 설명이 다르면 교재를 따르세요.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="data/_init.js"></script>
+  <script src="data/p1c1.js"></script>
+  <script src="data/p1c2.js"></script>
+  <script src="data/p2c1a.js"></script>
+  <script src="data/p2c1b.js"></script>
+  <script src="data/p2c2a.js"></script>
+  <script src="data/p2c2b.js"></script>
+  <script src="data/p2c3.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
