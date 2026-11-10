@@ -1,0 +1,12 @@
+{
+  "name": "SQLD 개념 트리",
+  "short_name": "SQLD 트리",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3f6f6",
+  "theme_color": "#0b6e6e",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
