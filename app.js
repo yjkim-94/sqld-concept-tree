@@ -424,6 +424,19 @@
     if (id !== (state.selected || "") && byId[id]) goTo(id);
   });
 
+  // 후원: 마우스를 쓰는 기기(PC)에서는 QR 코드를 띄우고, 휴대폰에서는 링크가 그대로 열려 카카오페이가 켜진다.
+  var donateDialog = document.getElementById("donate-dialog");
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  document.querySelectorAll("[data-donate]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (!finePointer.matches || !donateDialog.showModal) return;
+      e.preventDefault();
+      donateDialog.showModal();
+    });
+  });
+  document.getElementById("donate-close").addEventListener("click", function () { donateDialog.close(); });
+  donateDialog.addEventListener("click", function (e) { if (e.target === donateDialog) donateDialog.close(); });
+
   // ── 시작 ───────────────────────────────────────────────────
   buildTree();
   applyOpen();
