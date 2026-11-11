@@ -69,6 +69,11 @@ body {
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
+  /* 내용이 짧으면 푸터를 화면 맨 아래에 붙인다 */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 button, input { font: inherit; color: inherit; }
 button { cursor: pointer; }
@@ -145,7 +150,10 @@ button { cursor: pointer; }
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  align-content: start;
   gap: 24px;
+  flex: 1 0 auto;
+  width: 100%;
 }
 .detail { display: none; }
 @media (min-width: 1000px) {
